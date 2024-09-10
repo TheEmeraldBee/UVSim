@@ -7,6 +7,7 @@ class Main:
 
     def run(self):
         """Run Program Here"""
+        print("Running!")
         pass
 
 
