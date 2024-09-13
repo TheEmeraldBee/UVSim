@@ -1,9 +1,12 @@
+from src.vm.virtual_machine import VirtualMachine
+
+
 class Main:
     """Main Class for the program"""
 
     def __init__(self):
         """Create Program Data Here"""
-        ...
+        self.vm = VirtualMachine()
 
     def run(self):
         """Run Program Here"""
