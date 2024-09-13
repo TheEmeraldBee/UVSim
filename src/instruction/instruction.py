@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 
 from src.vm.virtual_machine import VirtualMachine
 
-
 class Instruction(ABC):
 
     @property

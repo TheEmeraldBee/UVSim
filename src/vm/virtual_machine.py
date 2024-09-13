@@ -1,8 +1,7 @@
-from src.cpu.cpu import CPU
 from src.memory.memory import Memory
 
 class VirtualMachine:
-    def __init__(self, cpu: CPU):
+    def __init__(self, cpu):
         self._memory = Memory()
         self.accumulator = 0
         self.cpu = cpu
