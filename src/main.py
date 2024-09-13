@@ -1,3 +1,5 @@
+from src.instruction.instruction import Instruction
+
 class Main:
     """Main Class for the program"""
 
