@@ -1,5 +1,3 @@
-from pytest import *
-
 from src.cpu.cpu import CPU
 from src.instruction.instructions.write import WriteInstruction
 
