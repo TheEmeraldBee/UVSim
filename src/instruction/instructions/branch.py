@@ -1,6 +1,4 @@
 from src.instruction.instruction import Instruction
-from src.vm.virtual_machine import VirtualMachine
-
 
 class BranchInstruction(Instruction):
     instruction = 40
@@ -8,6 +6,6 @@ class BranchInstruction(Instruction):
     def __init__(self):
         pass
 
-    def handle(self, vm: VirtualMachine, address: int):
+    def handle(self, vm, address):
         vm.cpu.set_program_location(address)
 
