@@ -1,4 +1,4 @@
-from getch import getch
+import getch
 
 from src.instruction.instruction import Instruction
 
@@ -9,4 +9,4 @@ class ReadInstruction(Instruction):
         pass
 
     def handle(self, vm, address):
-        vm.get_memory().set(address, ord(getch()))
+        vm.get_memory().set(address, ord(getch.getch()))
