@@ -3,11 +3,15 @@ from xml.etree.ElementTree import ParseError
 
 from src.cpu.cpu import CPU
 from src.instruction.event import InstructionEvent
+from src.instruction.instructions.add import AddInstruction
 from src.instruction.instructions.branch import BranchInstruction
 from src.instruction.instructions.branch_neg import BranchNegInstruction
 from src.instruction.instructions.branch_zero import BranchZeroInstruction
+from src.instruction.instructions.division import DivisionInstruction
 from src.instruction.instructions.halt import HaltInstruction
+from src.instruction.instructions.multiply import MultiplyInstruction
 from src.instruction.instructions.read import ReadInstruction
+from src.instruction.instructions.subtract import SubtractInstruction
 from src.instruction.instructions.write import WriteInstruction
 from src.instruction.parsed_instruction import ParsedInstruction
 from src.memory.memory import Memory
@@ -19,6 +23,11 @@ class VirtualMachine:
         self.cpu = CPU([
             ReadInstruction(),
             WriteInstruction(),
+
+            AddInstruction(),
+            SubtractInstruction(),
+            MultiplyInstruction(),
+            DivisionInstruction(),
 
             BranchInstruction(),
             BranchZeroInstruction(),

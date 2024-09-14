@@ -6,7 +6,7 @@ from src.instruction.instructions.write import WriteInstruction
 from src.vm.virtual_machine import VirtualMachine
 
 def test_branch():
-    vm = VirtualMachine(CPU())
+    vm = VirtualMachine()
 
     instruction = BranchInstruction()
 
@@ -14,7 +14,7 @@ def test_branch():
     assert vm.cpu._program_location == 65
 
 def test_branch_neg():
-    vm = VirtualMachine(CPU())
+    vm = VirtualMachine()
 
     instruction = BranchNegInstruction()
 
@@ -29,7 +29,7 @@ def test_branch_neg():
     assert vm.cpu._program_location == 65
 
 def test_branch_zero():
-    vm = VirtualMachine(CPU())
+    vm = VirtualMachine()
 
     instruction = BranchZeroInstruction()
 

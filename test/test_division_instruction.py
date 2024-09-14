@@ -1,8 +1,5 @@
-import pytest
-
-from instruction.instructions.division import DivisionInstruction
-from src.memory.memory import Memory
-from vm.virtual_machine import VirtualMachine
+from src.instruction.instructions.division import DivisionInstruction
+from src.vm.virtual_machine import VirtualMachine
 
 
 def test_division():
