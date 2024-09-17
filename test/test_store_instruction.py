@@ -9,4 +9,4 @@ def test_add():
     vm.accumulator = 10 
     add_instruction.handle(vm, 0)
 
-    vm.get_memory().get(0) == 10
+    assert vm.get_memory().get(0) == 10
