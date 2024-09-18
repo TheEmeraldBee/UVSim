@@ -1,10 +1,11 @@
 from enum import Enum
 
+
 class InstructionEvent(Enum):
     QUIT = 1
     EOF = 2
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         match self:
             case 1:
                 return "Quit"
