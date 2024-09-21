@@ -15,4 +15,3 @@
 8. User can divide memory at location to accumulator
 9. User can branch to specific memory location if accumulator is 0
 10. User can branch to specific memory location if accumulator is negative
-11. User can use negative values as program instructions

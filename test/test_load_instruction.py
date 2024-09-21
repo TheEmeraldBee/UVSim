@@ -2,7 +2,7 @@ from src.instruction.instructions.load import LoadInstruction
 from src.vm.virtual_machine import VirtualMachine
 
 
-def test_add():
+def test_load():
     vm = VirtualMachine()
     add_instruction = LoadInstruction()
 

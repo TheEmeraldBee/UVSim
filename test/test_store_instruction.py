@@ -2,11 +2,11 @@ from src.instruction.instructions.store import StoreInstruction
 from src.vm.virtual_machine import VirtualMachine
 
 
-def test_add():
+def test_store():
     vm = VirtualMachine()
     add_instruction = StoreInstruction()
 
-    vm.accumulator = 10 
+    vm.accumulator = 10
     add_instruction.handle(vm, 0)
 
     assert vm.get_memory().get(0) == 10
