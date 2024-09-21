@@ -14,6 +14,7 @@ from src.instruction.instructions.read import ReadInstruction
 from src.instruction.instructions.store import StoreInstruction
 from src.instruction.instructions.subtract import SubtractInstruction
 from src.instruction.instructions.write import WriteInstruction
+from src.instruction.parsed_instruction import parse
 from src.memory.memory import Memory
 
 
@@ -41,7 +42,7 @@ class VirtualMachine:
     def handle(self, instruction: int) -> Optional[InstructionEvent]:
         if instruction == -99999:
             return InstructionEvent.EOF
-        parsed = VirtualMachine.parse(instruction)
+        parsed = parse(instruction)
 
         instruction = self.cpu.get_instruction(parsed.instruction)
         if instruction is None:
