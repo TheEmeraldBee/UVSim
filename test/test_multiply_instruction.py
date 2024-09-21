@@ -12,3 +12,15 @@ def test_multiply():
     multiply_instruction.handle(vm, 0)
     
     assert vm.accumulator == 138
+
+
+def test_multiply_zero():
+    vm = VirtualMachine()
+    multiply_instruction = MultiplyInstruction()
+
+    vm.accumulator = 2
+    
+    vm.get_memory().set(0, 0)
+    multiply_instruction.handle(vm, 0)
+    
+    assert vm.accumulator == 0

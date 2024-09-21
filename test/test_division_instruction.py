@@ -12,3 +12,14 @@ def test_division():
     division_instruction.handle(vm, 0)
     
     assert vm.accumulator == 1
+
+def test_division_one():
+    vm = VirtualMachine()
+    division_instruction = DivisionInstruction()
+
+    vm.accumulator = 69
+    
+    vm.get_memory().set(0, 1)
+    division_instruction.handle(vm, 0)
+    
+    assert vm.accumulator == 69

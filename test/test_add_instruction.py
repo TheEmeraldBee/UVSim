@@ -10,3 +10,12 @@ def test_add():
     add_instruction.handle(vm, 0)
 
     assert vm.accumulator == 69
+
+def test_zero():
+    vm = VirtualMachine()
+    add_instruction = AddInstruction()
+
+    vm.get_memory().set(0, 0)
+    add_instruction.handle(vm, 0)
+
+    assert vm.accumulator == 0
