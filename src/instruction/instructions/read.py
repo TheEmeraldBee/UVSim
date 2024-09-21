@@ -3,7 +3,7 @@ import platform
 if platform.system() == "Windows":
     from msvcrt import getch
 else:
-    import getch
+    from getch import getch
 
 from src.instruction.instruction import Instruction
 
@@ -25,5 +25,5 @@ class ReadInstruction(Instruction):
     def handle(
         self, vm: "VirtualMachine", address: int
     ) -> Optional["InstructionEvent"]:
-        vm.get_memory().set(address, ord(getch.getch()))
+        vm.get_memory().set(address, ord(getch()))
         return
