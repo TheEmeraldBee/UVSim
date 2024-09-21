@@ -1,9 +1,8 @@
-from src.cpu.cpu import CPU
 from src.instruction.instructions.branch import BranchInstruction
 from src.instruction.instructions.branch_neg import BranchNegInstruction
 from src.instruction.instructions.branch_zero import BranchZeroInstruction
-from src.instruction.instructions.write import WriteInstruction
 from src.vm.virtual_machine import VirtualMachine
+
 
 def test_branch():
     vm = VirtualMachine()
@@ -13,9 +12,9 @@ def test_branch():
     instruction.handle(vm, 65)
     assert vm.cpu._program_location == 65
 
-def test_branch_neg():
-    vm = VirtualMachine()
 
+def test_branch_neg_success():
+    vm = VirtualMachine()
     instruction = BranchNegInstruction()
 
     vm.accumulator = -1
@@ -23,14 +22,19 @@ def test_branch_neg():
 
     assert vm.cpu._program_location == 65
 
+
+def test_branch_neg_fail():
+    vm = VirtualMachine()
+    instruction = BranchNegInstruction()
+
     vm.accumulator = 0
     instruction.handle(vm, 90)
-    
-    assert vm.cpu._program_location == 65
 
-def test_branch_zero():
+    assert vm.cpu._program_location == 0
+
+
+def test_branch_zero_success():
     vm = VirtualMachine()
-
     instruction = BranchZeroInstruction()
 
     vm.accumulator = 0
@@ -38,7 +42,12 @@ def test_branch_zero():
 
     assert vm.cpu._program_location == 65
 
+
+def test_branch_zero_fail():
+    vm = VirtualMachine()
+    instruction = BranchZeroInstruction()
+
     vm.accumulator = 1
     instruction.handle(vm, 90)
-    
-    assert vm.cpu._program_location == 65
+
+    assert vm.cpu._program_location == 0
