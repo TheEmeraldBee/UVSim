@@ -13,6 +13,15 @@ def test_branch():
     assert vm.cpu._program_location == 65
 
 
+def test_branch_start():
+    vm = VirtualMachine()
+
+    instruction = BranchInstruction()
+
+    instruction.handle(vm, 0)
+    assert vm.cpu._program_location == 0
+
+
 def test_branch_neg_success():
     vm = VirtualMachine()
     instruction = BranchNegInstruction()
