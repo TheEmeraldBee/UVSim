@@ -10,3 +10,5 @@ def test_store():
     add_instruction.handle(vm, 0)
 
     assert vm.get_memory().get(0) == 10
+
+
