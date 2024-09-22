@@ -12,3 +12,11 @@ def test_store():
     assert vm.get_memory().get(0) == 10
 
 
+def test_store_negative():
+    vm = VirtualMachine()
+    add_instruction = StoreInstruction()
+
+    vm.accumulator = -99
+    add_instruction.handle(vm, 0)
+
+    assert vm.get_memory().get(0) == -99
