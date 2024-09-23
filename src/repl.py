@@ -14,7 +14,6 @@ class Main:
             match text:
                 case 'memory':
                     print("\nProgram Memory: ")
-                    # If 'memory' is entered in the program, all memory values (0 - 99) are printed in the vm.
 
                     for i in range(0, 100):
                         print(f" - {i} = {self.vm.get_memory().get(i)}")
@@ -22,7 +21,6 @@ class Main:
                     print("-" * 10)
 
                     continue
-                # If 'accumulator' is entered in the program, the current value of the acummulator is printed.
 
                 case 'accumulator':
                     print(f"\nProgram Accumulator is currently: {self.vm.accumulator}")
@@ -30,7 +28,7 @@ class Main:
                 case 'quit':
                     return
                 
-            # Tries to see if the input is a recognized command. If so, the instruction is printed. Otherwise an error is thrown.
+            # Handles the instruction, and prints the result
             try:
                 result = self.vm.handle(int(text))
                 print(f"Instruction returned: {result}")

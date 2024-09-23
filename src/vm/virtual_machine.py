@@ -39,9 +39,12 @@ class VirtualMachine:
             ]
         )
 
+    # Handles executing an instruction while checking for EOF.
     def handle(self, instruction: int) -> Optional[InstructionEvent]:
         if instruction == -99999:
             return InstructionEvent.EOF
+        
+        # Breaks the instruction into its respective sign, opcode, and address.
         parsed = parse(instruction)
 
         instruction = self.cpu.get_instruction(parsed.instruction)
@@ -50,9 +53,11 @@ class VirtualMachine:
 
         return instruction.handle(self, parsed.address)
 
+    # Handles one instruction, executes, updates counter.
     def step(self) -> bool:
         instruction = self._memory.get(self.cpu.get_counter())
         event = self.handle(instruction)
+
         match event:
             case InstructionEvent.QUIT | InstructionEvent.EOF:
                 self.cpu.advance_counter()

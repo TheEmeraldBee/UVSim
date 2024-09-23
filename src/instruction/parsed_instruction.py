@@ -19,6 +19,7 @@ class ParsedInstruction:
 def parse(number: int) -> ParsedInstruction:
     text = str(number)
 
+# Handles the machine instruction while checking for the sign and opcode.
     if number > 0:
         text = "+" + text
 
@@ -38,6 +39,7 @@ def parse(number: int) -> ParsedInstruction:
             f"Unrecognized sign character `{sign_chr}`. Should be `+` or `-`"
         )
 
+# Tries to extract the opcode and the address while catching errors.
     try:
         instruction = int(text[1:3])
     except ValueError:
