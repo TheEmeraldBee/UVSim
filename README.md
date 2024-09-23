@@ -17,3 +17,6 @@ In order to debug your repl, the following commands allow for testing your progr
 - `quit` will exit the repl, returning you to the shell
 ## Running Files
 Typing `python -m src.main {filepath}` will run the virtual machine by loading the given filepath into memory.
+
+# Unit Tests Spreadsheet
+https://docs.google.com/spreadsheets/d/1QTb8sKVDeXY4Bi7FBApc3YbCMB7P11IFhFzOigon37I/edit?usp=sharing
