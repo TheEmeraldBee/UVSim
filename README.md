@@ -32,5 +32,5 @@ Typing `python3 -m src.main {filepath}` will run the virtual machine by loading 
 
 # Links
 
-[Design Document](DESIGN.md)
-[Test Spreadsheet](https://docs.google.com/spreadsheets/d/1QTb8sKVDeXY4Bi7FBApc3YbCMB7P11IFhFzOigon37I/edit?usp=sharing)
+- [Design Document](DESIGN.md)
+- [Test Spreadsheet](https://docs.google.com/spreadsheets/d/1QTb8sKVDeXY4Bi7FBApc3YbCMB7P11IFhFzOigon37I/edit?usp=sharing)
