@@ -1,10 +1,10 @@
-from typing import Optional
+from typing import Optional, List
 
 from src.instruction.instruction import Instruction
 
 
 class CPU:
-    def __init__(self, instructions: [Instruction]):
+    def __init__(self, instructions: List[Instruction]):
         self._instructions = instructions
         self._program_location = 0
 
