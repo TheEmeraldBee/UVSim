@@ -4,18 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "e0f930ac3f4bb8d2",
+        "id": "494927b03025e3b3",
         "type": "tabs",
         "children": [
           {
-            "id": "14dea5abe9c16672",
+            "id": "fe0d7890dd378c49",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "meetings/9-27-2024.md",
-                "mode": "source",
-                "source": false
+                "file": "diagrams/wireframe.png"
               }
             }
           }
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "meetings/9-27-2024.md",
+                "file": "diagrams/wireframe.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "meetings/9-27-2024.md",
+                "file": "diagrams/wireframe.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "meetings/9-27-2024.md"
+                "file": "diagrams/wireframe.png"
               }
             }
           }
@@ -146,11 +144,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "14dea5abe9c16672",
+  "active": "fe0d7890dd378c49",
   "lastOpenFiles": [
-    "README.md",
     "meetings/9-27-2024.md",
-    "meetings",
-    "DESIGN.md"
+    "meetings/9-30-2024.md",
+    "src/widgets/scroll_text.py",
+    "src/widgets/__init__.py",
+    "src/widgets",
+    "src/widgets/scrolltext.py",
+    "src/widgets/scrollText.py",
+    "src/memory/__pycache__/memory_view.cpython-312.pyc",
+    "src/tab/__pycache__/__init__.cpython-312.pyc",
+    "src/memory/memory_view.py",
+    "src/tab/__init__.py",
+    "src/tab/__pycache__/run.cpython-312.pyc",
+    "diagrams/wireframe.png",
+    "DESIGN.md",
+    "README.md"
   ]
 }
