@@ -26,7 +26,7 @@ class RunTab:
         self.input_area = tk.Text(root, state=tk.DISABLED)
         self.input_area.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-        self.memory_area = tk.Text(root)
+        self.memory_area = tk.Text(root, state=tk.DISABLED)
 
         self.memory_area.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 
