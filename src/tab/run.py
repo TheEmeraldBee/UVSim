@@ -49,4 +49,6 @@ class RunTab:
         for i in range(0, 100):
             text += f"{i:2} ---------- {memory.get(i)}\n"
 
+        self.memory_area.config(state=tk.NORMAL)
         self.memory_area.replace("1.0", tk.END, text)
+        self.memory_area.config(state=tk.DISABLED)
