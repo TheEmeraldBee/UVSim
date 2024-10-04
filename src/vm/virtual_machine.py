@@ -19,7 +19,9 @@ from src.memory.memory import Memory
 
 
 class VirtualMachine:
+    """Class that represents a virtual machine which executes instructions using a CPU and memory."""
     def __init__(self):
+        """Initializes the virtual machine with a memory unit, an accumulator set to 0, and a CPU initialized with a set of standard instructions."""
         self._memory = Memory()
         self.accumulator = 0
         self.cpu = CPU(
@@ -41,6 +43,7 @@ class VirtualMachine:
 
     # Handles executing an instruction while checking for EOF.
     def handle(self, instruction: int, output) -> Optional[InstructionEvent]:
+        """Handles the execution of an instruction and checks for special cases such as EOF."""
         if instruction == -99999:
             return InstructionEvent.EOF
         
@@ -51,7 +54,6 @@ class VirtualMachine:
         if instruction is None:
             raise ValueError(f"Instruction {parsed.instruction} is not valid")
 
-        return instruction.handle(self, parsed.address, output)
 
     # Handles one instruction, executes, updates counter.
     def step(self, output) -> bool:
@@ -67,4 +69,5 @@ class VirtualMachine:
                 return True
 
     def get_memory(self) -> Memory:
+        """Returns the memory object of the virtual machine"""
         return self._memory
