@@ -50,6 +50,8 @@ class VirtualMachine:
 
         # Breaks the instruction into its respective sign, opcode, and address.
         parsed = parse(instruction)
+        if parsed is None:
+            return None
 
         instr = self.cpu.get_instruction(parsed.instruction)
         if instr is None:
