@@ -20,6 +20,7 @@ from src.memory.memory import Memory
 
 class VirtualMachine:
     """Class that represents a virtual machine which executes instructions using a CPU and memory."""
+
     def __init__(self):
         """Initializes the virtual machine with a memory unit, an accumulator set to 0, and a CPU initialized with a set of standard instructions."""
         self._memory = Memory()
@@ -46,14 +47,14 @@ class VirtualMachine:
         """Handles the execution of an instruction and checks for special cases such as EOF."""
         if instruction == -99999:
             return InstructionEvent.EOF
-        
+
         # Breaks the instruction into its respective sign, opcode, and address.
         parsed = parse(instruction)
 
-        instruction = self.cpu.get_instruction(parsed.instruction)
-        if instruction is None:
+        instr = self.cpu.get_instruction(parsed.instruction)
+        if instr is None:
             raise ValueError(f"Instruction {parsed.instruction} is not valid")
-
+        instr.handle(self, parsed.address, output)
 
     # Handles one instruction, executes, updates counter.
     def step(self, output) -> bool:
