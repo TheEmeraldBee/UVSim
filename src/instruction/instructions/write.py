@@ -1,5 +1,6 @@
 from typing import Optional
 from typing import TYPE_CHECKING
+import tkinter as tk
 
 from src.instruction.instruction import Instruction
 
@@ -16,7 +17,9 @@ class WriteInstruction(Instruction):
         pass
 
     def handle(
-        self, vm: "VirtualMachine", address: int
+        self, vm: "VirtualMachine", address: int, output
     ) -> Optional["InstructionEvent"]:
-        print(chr(vm.get_memory().get(address)))
+        #output.append( chr(vm.get_memory().get(address)))
+        output.insert(tk.END, chr(vm.get_memory().get(address)))
+        output.update()
         return

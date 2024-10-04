@@ -13,7 +13,7 @@ class BranchInstruction(Instruction):
     def __init__(self):
         pass
 
-    def handle(self, vm: 'VirtualMachine', address: int) -> Optional['InstructionEvent']:
+    def handle(self, vm: 'VirtualMachine', address: int, output) -> Optional['InstructionEvent']:
         vm.cpu.set_program_location(address)
         return
 

@@ -13,6 +13,6 @@ class StoreInstruction(Instruction):
     def __init__(self):
         pass
 
-    def handle(self, vm: 'VirtualMachine', address: int) -> Optional['InstructionEvent']:
+    def handle(self, vm: 'VirtualMachine', address: int, output) -> Optional['InstructionEvent']:
         vm.get_memory().set(address, vm.accumulator)
         return

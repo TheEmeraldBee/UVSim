@@ -16,7 +16,7 @@ class AddInstruction(Instruction):
         pass
 
     def handle(
-        self, vm: "VirtualMachine", address: int
+        self, vm: "VirtualMachine", address: int, output
     ) -> Optional["InstructionEvent"]:
         vm.accumulator += vm.get_memory().get(address)
         return

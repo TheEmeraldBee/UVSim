@@ -13,7 +13,7 @@ class BranchZeroInstruction(Instruction):
     def __init__(self):
         pass
 
-    def handle(self, vm: 'VirtualMachine', address: int) -> Optional['InstructionEvent']:
+    def handle(self, vm: 'VirtualMachine', address: int, output) -> Optional['InstructionEvent']:
         if vm.accumulator == 0: 
             vm.cpu.set_program_location(address)
         return

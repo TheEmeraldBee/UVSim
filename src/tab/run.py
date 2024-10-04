@@ -23,8 +23,8 @@ class RunTab:
 
         self.commands.pack(anchor=tk.NW)
 
-        self.input_area = tk.Text(root, state=tk.DISABLED)
-        self.input_area.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self.text_area = tk.Text(root, state=tk.DISABLED)
+        self.text_area.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
         self.memory_area = tk.Text(root, state=tk.DISABLED)
 
@@ -37,8 +37,10 @@ class RunTab:
         self.vm.get_memory().load_file(path)
 
     def run(self):
-        while self.vm.step():
+        while self.vm.step(self.text_area):
             self.update_memory()
+      
+        
 
     def update_memory(self):
         memory = self.vm.get_memory()

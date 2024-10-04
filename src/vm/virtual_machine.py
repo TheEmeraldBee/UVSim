@@ -40,7 +40,7 @@ class VirtualMachine:
         )
 
     # Handles executing an instruction while checking for EOF.
-    def handle(self, instruction: int) -> Optional[InstructionEvent]:
+    def handle(self, instruction: int, output) -> Optional[InstructionEvent]:
         if instruction == -99999:
             return InstructionEvent.EOF
         
@@ -51,12 +51,12 @@ class VirtualMachine:
         if instruction is None:
             raise ValueError(f"Instruction {parsed.instruction} is not valid")
 
-        return instruction.handle(self, parsed.address)
+        return instruction.handle(self, parsed.address, output)
 
     # Handles one instruction, executes, updates counter.
-    def step(self) -> bool:
+    def step(self, output) -> bool:
         instruction = self._memory.get(self.cpu.get_counter())
-        event = self.handle(instruction)
+        event = self.handle(instruction, output)
 
         match event:
             case InstructionEvent.QUIT | InstructionEvent.EOF:

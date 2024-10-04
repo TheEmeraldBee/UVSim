@@ -18,7 +18,7 @@ class Instruction(ABC):
 
     @abstractmethod
     def handle(
-        self, vm: "VirtualMachine", address: int
+        self, vm: "VirtualMachine", address: int, output
     ) -> Optional["InstructionEvent"]:
         """Handle the instruction with only the VM and ADDRESS"""
         ...
