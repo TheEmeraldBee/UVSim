@@ -54,7 +54,7 @@ class VirtualMachine:
         instr = self.cpu.get_instruction(parsed.instruction)
         if instr is None:
             raise ValueError(f"Instruction {parsed.instruction} is not valid")
-        instr.handle(self, parsed.address, output)
+        return instr.handle(self, parsed.address, output)
 
     # Handles one instruction, executes, updates counter.
     def step(self, output) -> bool:

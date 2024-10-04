@@ -39,9 +39,12 @@ class RunTab:
 
         self.vm = VirtualMachine()
 
+        self.update_memory()
+
     def open(self):
         path = filedialog.askopenfilename(title="File to load", initialdir="./")
         self.vm.get_memory().load_file(path)
+        self.update_memory()
 
     def run(self):
         if self.paused:
