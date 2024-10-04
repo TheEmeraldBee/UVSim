@@ -19,7 +19,7 @@ class WriteInstruction(Instruction):
     def handle(
         self, vm: "VirtualMachine", address: int, output
     ) -> Optional["InstructionEvent"]:
-        #output.append( chr(vm.get_memory().get(address)))
-        output.insert(tk.END, chr(vm.get_memory().get(address)))
-        output.update()
+        output.text_area.configure(state=tk.NORMAL)
+        output.text_area.insert(tk.END, str(chr(vm.get_memory().get(address))))
+        output.text_area.configure(state=tk.DISABLED)
         return
