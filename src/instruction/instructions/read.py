@@ -35,7 +35,13 @@ class ReadInstruction(Instruction):
         try:
             val = int(self.output.num_input.get())
         except ValueError:
-            print("Invalid Input! Running Event Again")
+            self.output.text_area.configure(state=tk.NORMAL)
+            self.output.text_area.insert(
+                tk.END,
+                f"\nInput {self.output.num_input.get()} is invalid. Please type a number\n",
+            )
+            self.output.num_input.delete(0, tk.END)
+            self.output.text_area.configure(state=tk.DISABLED)
             return
 
         self.output.paused = False
