@@ -1,6 +1,7 @@
 from src.cpu.cpu import CPU
 
 
+
 class Memory:
     """Class that represents a memory storage for the virtual machine"""
     def __init__(self):
@@ -19,7 +20,7 @@ class Memory:
             raise IndexError("Address out of memory range (0, 99)")
         return self._memory[address]
 
-    def load_file(self, path):
+    def load_file(self, path) -> str:
         """Loads a file with instructions into the memory, starting at address 0. Each line in the file is an instruction"""
         with open(path, "r") as file:
             idx = 0

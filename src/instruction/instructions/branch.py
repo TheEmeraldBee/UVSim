@@ -6,6 +6,8 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from src.vm.virtual_machine import VirtualMachine
+    from src.tab.run import RunTab
+
 from src.instruction.event import InstructionEvent
 
 
@@ -16,7 +18,7 @@ class BranchInstruction(Instruction):
         pass
 
     def handle(
-        self, vm: "VirtualMachine", address: int, output
+        self, vm: "VirtualMachine", address: int, output: "RunTab"
     ) -> Optional["InstructionEvent"]:
         vm.cpu.set_program_location(address)
         return

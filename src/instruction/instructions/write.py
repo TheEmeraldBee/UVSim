@@ -6,6 +6,7 @@ from src.instruction.instruction import Instruction
 
 if TYPE_CHECKING:
     from src.vm.virtual_machine import VirtualMachine
+    from src.tab.run import RunTab
 
 from src.instruction.event import InstructionEvent
 
@@ -17,7 +18,7 @@ class WriteInstruction(Instruction):
         pass
 
     def handle(
-        self, vm: "VirtualMachine", address: int, output
+        self, vm: "VirtualMachine", address: int, output: "RunTab"
     ) -> Optional["InstructionEvent"]:
         output.text_area.configure(state=tk.NORMAL)
         output.text_area.insert(tk.END, str(chr(vm.get_memory().get(address))))
