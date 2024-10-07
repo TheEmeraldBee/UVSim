@@ -25,7 +25,7 @@ class EditorTab:
         self.scroll_bar.pack(side=tk.RIGHT, fill=tk.Y)
         self.text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-    def open(self):
+    def open(self) -> None:
         path = filedialog.askopenfilename(initialdir="./", defaultextension=".txt")
         if path == "":
             return
@@ -35,7 +35,7 @@ class EditorTab:
             self.text.replace("1.0", tk.END, data)
             self.text.update()
 
-    def save(self):
+    def save(self) -> None:
         path = filedialog.asksaveasfilename(initialdir="./", defaultextension=".txt")
         if path == "":
             return

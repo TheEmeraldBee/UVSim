@@ -46,7 +46,7 @@ class RunTab:
         self.vm.get_memory().load_file(path)
         self.update_memory()
 
-    def run(self):
+    def run(self) -> None:
         if self.paused:
             self.root.after(10, self.run)
             return

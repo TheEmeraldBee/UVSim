@@ -31,7 +31,7 @@ class ReadInstruction(Instruction):
 
         return
 
-    def end_read(self, event):
+    def end_read(self, event) -> Optional["InstructionEvent"]:
         try:
             val = int(self.output.num_input.get())
         except ValueError:

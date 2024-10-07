@@ -19,7 +19,7 @@ class CPU:
         self._program_location += 1
         self._program_location = min(99, self._program_location)
 
-    def with_instruction(self, instruction: Instruction):
+    def with_instruction(self, instruction: Instruction) -> Instruction:
         """Registers an instruction, returning self for method chaining."""
         self._instructions.append(instruction)
         return self
