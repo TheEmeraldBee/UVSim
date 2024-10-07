@@ -7,7 +7,7 @@ class ParsedInstruction:
         self.instruction = instruction
         self.address = address
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         if self.sign == 1:
             sign_text = "+"
         else:
