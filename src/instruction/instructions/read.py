@@ -1,5 +1,4 @@
 import tkinter as tk
-from src.tab.run import RunTab
 
 from src.instruction.instruction import Instruction
 

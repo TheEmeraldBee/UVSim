@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, TYPE_CHECKING
 
 from src.cpu.cpu import CPU
 from src.instruction.event import InstructionEvent
