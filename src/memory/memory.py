@@ -1,4 +1,5 @@
 from src.cpu.cpu import CPU
+import tkinter.messagebox as msg
 
 
 
@@ -34,7 +35,12 @@ class Memory:
                 # Remove + signs
                 if line[0] == "+":
                     line = line[1::]
+                try:
+                    code = int(line)
+                except ValueError:
+                    
+                    msg.showerror("Value Error","Please select a .txt file." )
+                    raise ValueError(f"Invalid input for int. {line} should be an integer.")
 
-                code = int(line)
                 self.set(idx, code)
                 idx += 1

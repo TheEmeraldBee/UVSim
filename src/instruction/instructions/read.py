@@ -1,5 +1,6 @@
 import tkinter as tk
 
+
 from src.instruction.instruction import Instruction
 
 from typing import Optional
@@ -38,7 +39,7 @@ class ReadInstruction(Instruction):
             self.output.text_area.configure(state=tk.NORMAL)
             self.output.text_area.insert(
                 tk.END,
-                f"\nInput {self.output.num_input.get()} is invalid. Please type a number\n",
+                f"\nInput {self.output.num_input.get()} is invalid. Please type a positive number\n",
             )
             self.output.num_input.delete(0, tk.END)
             self.output.text_area.configure(state=tk.DISABLED)

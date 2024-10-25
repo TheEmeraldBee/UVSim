@@ -1,4 +1,5 @@
 from src.vm.virtual_machine import VirtualMachine
+import tkinter.messagebox as msg
 
 class Main:
     """Main Class for the program"""
@@ -33,6 +34,7 @@ class Main:
                 result = self.vm.handle(int(text))
                 print(f"Instruction returned: {result}")
             except ValueError as e:
+                msg.showerror("Value Error", f"Instruction Errored: {e}")
                 print(f"Instruction Errored: {e}")
 
 if __name__ == "__main__":

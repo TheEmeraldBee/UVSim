@@ -1,4 +1,5 @@
 from lib2to3.pgen2.parse import ParseError
+import tkinter.messagebox as msg
 
 
 class ParsedInstruction:
@@ -27,7 +28,7 @@ def parse(number: int) -> ParsedInstruction | None:
         text = "+" + text
 
     if len(text) != 5:
-        raise ParseError(
+        raise Exception(
             f"Instruction length should be 5 characters, but found {len(text)}"
         )
 
@@ -46,11 +47,14 @@ def parse(number: int) -> ParsedInstruction | None:
     try:
         instruction = int(text[1:3])
     except ValueError:
+        msg.showerror("Value Error", f"Unrecognized number `{text[0:2]}`. Should be an integer")
         raise ParseError(f"Unrecognized number `{text[0:2]}`. Should be an integer")
 
     try:
         address = int(text[3:5])
     except ValueError:
+        msg.showerror("Value Error", f"Unrecognized number `{text[1:3]}`. Should be an integer")
+
         raise ParseError(f"Unrecognized number `{text[1:3]}`. Should be an integer")
 
     return ParsedInstruction(sign_num, instruction, address)
