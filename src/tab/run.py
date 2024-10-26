@@ -6,20 +6,15 @@ from src.vm.virtual_machine import VirtualMachine
 
 
 class RunTab:
-    def __init__(self, root):
+    def __init__(self, root, color_config):
         self.root = root
 
         self.paused = False
 
-        self.label = tk.Label(root, text="Running Code")
-
-        self.commands = ttk.Frame(root)
-
-        self.open_button = ttk.Button(self.commands, text="Open", command=self.open)
-        self.run_button = ttk.Button(self.commands, text="Run", command=self.run)
-        self.update_memory_button = ttk.Button(
-            self.commands, text="Update Memory", command=self.update_memory
-        )
+        self.commands = tk.Frame(root, bg=color_config.primary_color)
+        self.open_button = tk.Button(self.commands, text="Open", command=self.open, bg=color_config.secondary_color, fg="black")
+        self.run_button = tk.Button(self.commands, text="Run", command=self.run, bg=color_config.secondary_color, fg="black")
+        self.update_memory_button = tk.Button(self.commands, text="Update Memory", command=self.update_memory, bg=color_config.secondary_color, fg="black")
 
         self.open_button.grid(column=0, row=0)
         self.run_button.grid(column=1, row=0)
@@ -27,18 +22,23 @@ class RunTab:
 
         self.commands.grid(column=0, row=0)
 
-        self.text_area = tk.Text(root, state=tk.DISABLED)
-        self.text_area.grid(column=0, row=1)
+        # Left window colors
+        text_border_frame = tk.Frame(root, bg=color_config.primary_color, padx=5, pady=5)
+        text_border_frame.grid(column=0, row=1, padx=10, pady=10)
+        self.text_area = tk.Text(text_border_frame, state=tk.DISABLED, bg=color_config.secondary_color, fg="black")
+        self.text_area.pack(fill="both", expand=True)
 
-        self.num_input = tk.Entry(root, state=tk.DISABLED)
-        self.num_input.grid(column=0, row=2)
+        # Right window colors
+        memory_border_frame = tk.Frame(root, bg=color_config.primary_color, padx=5, pady=5)
+        memory_border_frame.grid(column=1, row=1, padx=10, pady=10)
+        self.memory_area = tk.Text(memory_border_frame, state=tk.DISABLED, bg=color_config.secondary_color, fg="black")
+        self.memory_area.pack(fill="both", expand=True)
 
-        self.memory_area = tk.Text(root, state=tk.DISABLED)
-
-        self.memory_area.grid(column=1, row=1)
+        # Input box color
+        self.num_input = tk.Entry(root, state=tk.DISABLED, bg=color_config.secondary_color, fg="black")
+        self.num_input.grid(column=0, row=2, pady=10)
 
         self.vm = VirtualMachine()
-
         self.update_memory()
 
     def open(self):

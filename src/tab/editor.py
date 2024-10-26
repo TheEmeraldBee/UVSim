@@ -7,30 +7,32 @@ import tkinter as tk
 
 
 class EditorTab:
-    def __init__(self, root):
-        self.text = tk.Text(root)
+    def __init__(self, root, color_config):
+        # Command frame for buttons (keeping buttons white)
+        self.commands = tk.Frame(root, bg=color_config.primary_color)
+        self.open_button = tk.Button(self.commands, text="Open", command=self.open, bg=color_config.secondary_color, fg="black")
+        self.open_button.grid(column=0, row=0)
+
+        self.save_button = tk.Button(self.commands, text="Save", command=self.save, bg=color_config.secondary_color, fg="black")
+        self.save_button.grid(column=1, row=0)
+
+        self.validate_button = tk.Button(self.commands, text="Validate", command=self.validate, bg=color_config.secondary_color, fg="black")
+        self.validate_button.grid(column=2, row=0)
+
+        self.commands.pack(anchor=tk.NW) # Packs command buttons at the top
+
+        # Outer border frame for the main text area
+        text_border_frame = tk.Frame(root, bg=color_config.primary_color, padx=5, pady=5)
+        text_border_frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+        # Main text area inside the border frame
+        self.text = tk.Text(text_border_frame, bg=color_config.secondary_color, fg="black")
         self.scroll_bar = ttk.Scrollbar(root)
 
         self.text.configure(yscrollcommand=self.scroll_bar.set)
         self.scroll_bar.config(command=self.text.yview)
-
-        self.commands = ttk.Frame(root)
-
-        self.open_button = ttk.Button(self.commands, text="Open", command=self.open)
-        self.open_button.grid(column=0, row=0)
-
-        self.save_button = ttk.Button(self.commands, text="Save", command=self.save)
-        self.save_button.grid(column=1, row=0)
-
-        self.validate_button = ttk.Button(
-            self.commands, text="Validate", command=self.validate
-        )
-        self.validate_button.grid(column=2, row=0)
-
-        # Pack Widgets
-        self.commands.pack(anchor=tk.NW)
         self.scroll_bar.pack(side=tk.RIGHT, fill=tk.Y)
-        self.text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self.text.pack(fill="both", expand=True)  # Ensure text fills within border
 
     def validate(self):
         # Read text from textbox
