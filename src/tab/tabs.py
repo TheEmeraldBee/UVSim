@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 class Tabs:
-    def __init__(self, root, color_config):
+    def __init__(self, root, color_config): 
         self.tab_root = ttk.Notebook(root)
         self.tabs = []
         self.color_config = color_config

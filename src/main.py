@@ -6,7 +6,7 @@ from src.config.color_config import ColorConfig
 from tkinter import ttk
 
 class Main:
-    """Main Class for the program"""
+    """Main Class for the program""" 
 
     def __init__(self):
         """Build the program"""
@@ -37,7 +37,7 @@ class Main:
         self.root.configure(bg=self.color_config.primary_color)
 
     def run(self):
-        self.root.mainloop()
+        self.root.mainloop() 
 
 
 if __name__ == "__main__":

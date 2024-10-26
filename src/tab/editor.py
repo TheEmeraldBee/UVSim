@@ -3,7 +3,7 @@ from tkinter import filedialog
 
 import tkinter.messagebox as msg
 
-import tkinter as tk
+import tkinter as tk 
 
 
 class EditorTab:

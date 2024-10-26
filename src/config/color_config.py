@@ -1,7 +1,7 @@
 import json
 import os
 
-class ColorConfig:
+class ColorConfig: 
     DEFAULT_PRIMARY_COLOR = "#4C721D"  
     DEFAULT_SECONDARY_COLOR = "#FFFFFF"  
 

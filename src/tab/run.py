@@ -28,11 +28,11 @@ class RunTab:
         self.text_area = tk.Text(text_border_frame, state=tk.DISABLED, bg=color_config.secondary_color, fg="black")
         self.text_area.pack(fill="both", expand=True)
 
-        # Right window colors
+        # Right window colors 
         memory_border_frame = tk.Frame(root, bg=color_config.primary_color, padx=5, pady=5)
         memory_border_frame.grid(column=1, row=1, padx=10, pady=10)
         self.memory_area = tk.Text(memory_border_frame, state=tk.DISABLED, bg=color_config.secondary_color, fg="black")
-        self.memory_area.pack(fill="both", expand=True)
+        self.memory_area.pack(fill="both", expand=True) 
 
         # Input box color
         self.num_input = tk.Entry(root, state=tk.DISABLED, bg=color_config.secondary_color, fg="black")

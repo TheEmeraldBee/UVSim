@@ -5,7 +5,7 @@ from tkinter import colorchooser, messagebox
 class SettingsWindow:
     """Window for selecting and applying color settings"""
 
-    def __init__(self, master, color_config, apply_callback):
+    def __init__(self, master, color_config, apply_callback): 
         self.color_config = color_config
         self.apply_callback = apply_callback
 
