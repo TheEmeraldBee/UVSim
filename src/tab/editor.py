@@ -5,6 +5,8 @@ import tkinter.messagebox as msg
 
 import tkinter as tk 
 
+from src.vm.virtual_machine import MEMORY_SIZE
+from src.instruction.parsed_instruction import INSTRUCTION_CODE_LENGTH
 
 class EditorTab:
     def __init__(self, root, color_config):
@@ -35,6 +37,7 @@ class EditorTab:
         self.text.pack(fill="both", expand=True)  # Ensure text fills within border
 
     def validate(self):
+        """Validates the text in the editor making sure it is valid."""
         # Read text from textbox
         text = self.text.get("1.0", tk.END)
 
@@ -43,10 +46,10 @@ class EditorTab:
         lines = text.splitlines()
 
         # Ensure line count is less than 100
-        if len(lines) > 100:
+        if len(lines) > MEMORY_SIZE:
             msg.showwarning(
                 title="Invalid Program",
-                message=f"Program is invalid, it contains more than 100 instructions, which would overflow memory",
+                message="Program is invalid, it contains more than 100 instructions, which would overflow memory",
             )
             valid = False
 
@@ -65,13 +68,22 @@ class EditorTab:
 
             try:
                 # Convert Remaining text in line to an integer
-                num = int(line[1::])
+                _ = int(line[1::])
 
                 # Ensure value of instruction is valid
-                if num != 0 and len(line[1::]) != 4:
+                if len(line[1::]) != (INSTRUCTION_CODE_LENGTH * 2):
                     msg.showwarning(
                         title="Invalid Instruction",
-                        message=f"Line {line_idx} Is invalid, instruction value should either be `0` or be 4 digits long",
+                        message=f"Line {line_idx} Is invalid, instruction value should be {INSTRUCTION_CODE_LENGTH * 2} digits long",
+                    )
+                    valid = False
+
+                op_code = int(line[1:4:])
+                addr = int(line[4::])
+                if addr > MEMORY_SIZE or op_code > MEMORY_SIZE:
+                    msg.showwarning(
+                        title="Invalid Instruction",
+                        message=f"Line {line_idx} is invalid. both halves of instruction should be betweeen 0 and {MEMORY_SIZE}"
                     )
                     valid = False
             except ValueError:

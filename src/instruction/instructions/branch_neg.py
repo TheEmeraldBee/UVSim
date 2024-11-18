@@ -18,6 +18,6 @@ class BranchNegInstruction(Instruction):
     def handle(self, vm: 'VirtualMachine', address: int, output: "RunTab") -> Optional['InstructionEvent']:
         if vm.accumulator < 0: 
             vm.cpu.set_program_location(address)
+            return InstructionEvent.NO_ADVANCE
         return
-
 

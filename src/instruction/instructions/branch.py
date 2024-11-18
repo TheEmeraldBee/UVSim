@@ -21,4 +21,4 @@ class BranchInstruction(Instruction):
         self, vm: "VirtualMachine", address: int, output: "RunTab"
     ) -> Optional["InstructionEvent"]:
         vm.cpu.set_program_location(address)
-        return
+        return InstructionEvent.NO_ADVANCE
