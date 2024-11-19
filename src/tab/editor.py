@@ -21,6 +21,9 @@ class EditorTab:
         self.validate_button = tk.Button(self.commands, text="Validate", command=self.validate, bg=color_config.secondary_color, fg="black")
         self.validate_button.grid(column=2, row=0)
 
+        self.validate_button = tk.Button(self.commands, text="Correct Command", command=self.convert_commands, bg=color_config.secondary_color, fg="black")
+        self.validate_button.grid(column=3, row=0)
+
         self.commands.pack(anchor=tk.NW) # Packs command buttons at the top
 
         # Outer border frame for the main text area
@@ -117,3 +120,12 @@ class EditorTab:
             return
         with open(path, "w") as file:
             file.write(self.text.get("1.0", tk.END))
+
+    def convert_commands(self):
+        text = self.text.get("1.0", tk.END)
+
+        lineArrays =  text.splitlines()
+        firstLine = lineArrays[0]
+        if len(firstLine) == 5:
+            self.text.insert(1, "0")
+            self.text.insert(4, "0")

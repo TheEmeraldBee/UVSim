@@ -15,12 +15,10 @@ class RunTab:
         self.open_button = tk.Button(self.commands, text="Open", command=self.open, bg=color_config.secondary_color, fg="black")
         self.run_button = tk.Button(self.commands, text="Run", command=self.run, bg=color_config.secondary_color, fg="black")
         self.update_memory_button = tk.Button(self.commands, text="Update Memory", command=self.update_memory, bg=color_config.secondary_color, fg="black")
-        self.convert_order = tk.Button(self.commands, text="Convert to 6 digits", command=self.convert_commands, bg=color_config.secondary_color, fg="black")
 
         self.open_button.grid(column=0, row=0)
         self.run_button.grid(column=1, row=0)
         self.update_memory_button.grid(column=2, row=0)
-        self.convert_order.grid(column=3,row=0)
 
         self.commands.grid(column=0, row=0)
 
@@ -71,7 +69,4 @@ class RunTab:
         self.memory_area.replace("1.0", tk.END, text)
         self.memory_area.config(state=tk.DISABLED)
     
-    def convert_commands(self):
-        if len(self.num_input.get()) < 6:
-            self.num_input.insert(0, "0")
-            self.num_input.insert(3, "0")
+  
