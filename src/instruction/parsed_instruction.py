@@ -1,5 +1,6 @@
 from lib2to3.pgen2.parse import ParseError
 import tkinter.messagebox as msg
+from typing import Optional
 
 # The length of an instruction
 INSTRUCTION_CODE_LENGTH = 3
@@ -68,3 +69,14 @@ def parse(number: str) -> ParsedInstruction | None:
         raise ParseError(f"Unrecognized number `{text[1:3]}`. Should be an integer")
 
     return ParsedInstruction(sign_num, instruction, address)
+
+class InstructionParsingError(Exception):
+    
+    def __init__(self, message: str, instruction: Optional[str] = None):
+        super().__init__(message)
+        self.instruction = instruction
+
+    def __str__(self):
+        if self.instruction:
+            return f"{self.args[0]} - Instruction: {self.instruction}"
+        return self.args[0]
