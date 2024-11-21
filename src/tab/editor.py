@@ -121,12 +121,17 @@ class EditorTab:
         with open(path, "w") as file:
             file.write(self.text.get("1.0", tk.END))
     
-    #convert prototype. 
+     
     def convert(self) -> None: 
+        """"converts commands from 5 digits to 7."""
         text = self.text.get("1.0", tk.END)
-
         lines = text.splitlines()
-        firstLine = lines[0]
-        if len(firstLine) == 5: 
-            self.text.insert(1, "0")
-            self.text.insert(4, "0")
+        for line in range(len(lines)): 
+            if len(lines[line]) == 5: 
+                partOne = lines[line][1:3]
+                partTwo = lines[line][3::]
+                alteredCommand = f"{lines[line][0]}0{partOne}0{partTwo}"
+                lines[line] = alteredCommand
+        lines = "\n".join(lines)
+        self.text.replace("1.0", tk.END, lines)
+
