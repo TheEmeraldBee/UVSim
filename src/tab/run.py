@@ -68,3 +68,5 @@ class RunTab:
         self.memory_area.config(state=tk.NORMAL)
         self.memory_area.replace("1.0", tk.END, text)
         self.memory_area.config(state=tk.DISABLED)
+    
+  
