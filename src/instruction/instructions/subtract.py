@@ -10,6 +10,7 @@ if TYPE_CHECKING:
 from src.instruction.event import InstructionEvent
 
 class SubtractInstruction(Instruction):
+    """Deducts from the accumulator the value stored in memory at the specified address"""
     instruction = 31
 
     def __init__(self):

@@ -12,6 +12,7 @@ from src.instruction.event import InstructionEvent
 
 
 class BranchInstruction(Instruction):
+    """Handles unconditional branching to a specified memory address."""
     instruction = 40
 
     def __init__(self):

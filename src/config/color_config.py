@@ -2,10 +2,12 @@ import json
 import os
 
 class ColorConfig: 
+    """Manages customizable color settings for the application"""
     DEFAULT_PRIMARY_COLOR = "#4C721D"  
     DEFAULT_SECONDARY_COLOR = "#FFFFFF"  
 
     def __init__(self):
+        """Initializes default colors and loads configuration"""
         self.primary_color = self.DEFAULT_PRIMARY_COLOR
         self.secondary_color = self.DEFAULT_SECONDARY_COLOR
         self.config_path = os.path.join(os.path.dirname(__file__), "color_settings.json")

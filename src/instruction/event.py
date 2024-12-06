@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class InstructionEvent(Enum):
+    """Enum representing different instruction events"""
     QUIT = 1
     EOF = 2
     NO_ADVANCE = 3

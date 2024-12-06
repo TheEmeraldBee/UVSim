@@ -12,6 +12,7 @@ from src.instruction.event import InstructionEvent
 
 
 class WriteInstruction(Instruction):
+    """Enters the character into the text field from memory at the specified address"""
     instruction = 11
 
     def __init__(self):

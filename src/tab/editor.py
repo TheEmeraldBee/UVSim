@@ -9,6 +9,7 @@ from src.vm.virtual_machine import MEMORY_SIZE
 from src.instruction.parsed_instruction import INSTRUCTION_CODE_LENGTH
 
 class EditorTab:
+    """Class to manage the text editor tab with various functionality like open, save, validate, and more"""
     def __init__(self, root, color_config):
         # Command frame for buttons (keeping buttons white)
         self.commands = tk.Frame(root, bg=color_config.primary_color)

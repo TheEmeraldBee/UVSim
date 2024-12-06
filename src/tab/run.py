@@ -6,6 +6,7 @@ from src.vm.virtual_machine import *
 
 
 class RunTab:
+    """Class for managing the run tab of the virtual machine GUI"""
     def __init__(self, root, color_config):
         self.root = root
 

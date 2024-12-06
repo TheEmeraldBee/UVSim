@@ -5,6 +5,7 @@ from src.tab.run import RunTab
 
 
 class Tabs:
+    """Class for managing the tabs in the main window of the application"""
     def __init__(self, main, root, color_config, top_level = True):
         if top_level:
             self.window = tk.Toplevel(root)

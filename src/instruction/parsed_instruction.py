@@ -71,6 +71,7 @@ def parse(number: str) -> ParsedInstruction | None:
     return ParsedInstruction(sign_num, instruction, address)
 
 class InstructionParsingError(Exception):
+    """Errors in instruction parsing result in an exception"""
     
     def __init__(self, message: str, instruction: Optional[str] = None):
         super().__init__(message)

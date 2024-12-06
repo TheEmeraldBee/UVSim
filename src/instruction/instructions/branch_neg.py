@@ -10,6 +10,7 @@ if TYPE_CHECKING:
 from src.instruction.event import InstructionEvent
 
 class BranchNegInstruction(Instruction):
+    """Handles branch operations when the accumulator is negative."""
     instruction = 41
 
     def __init__(self):

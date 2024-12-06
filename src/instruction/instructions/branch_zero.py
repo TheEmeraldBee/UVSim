@@ -10,6 +10,8 @@ if TYPE_CHECKING:
 from src.instruction.event import InstructionEvent
 
 class BranchZeroInstruction(Instruction):
+    """Handles branch operations when the accumulator is zero."""
+
     instruction = 42
 
     def __init__(self):
