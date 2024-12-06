@@ -1,3 +1,7 @@
+# Introduction
+
+Users can load, execute, and modify instructions in a straightforward and interactive environment with the help of this application's virtual machine interface. Users can follow detailed instructions, view and modify memory values, and resume execution after halting.
+
 # Installation Requirements
 
 Ensure that you have the `getch` and `pytest` python modules installed `pip3 install getch` and `pip3 install pytest`
@@ -34,6 +38,10 @@ To enter an instruction, click on the small input box underneath the left window
 
 You may now begin typing your desired instructions.
 
+# Screenshots
+
+- [Running Tab](RunningTab.png)
+- [Editor Tab](EditorTab.png)
 
 
 # Links
