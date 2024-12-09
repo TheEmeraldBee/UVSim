@@ -9,6 +9,7 @@ from src.vm.virtual_machine import MEMORY_SIZE
 from src.instruction.parsed_instruction import INSTRUCTION_CODE_LENGTH
 
 class EditorTab:
+    """Class to manage the text editor tab with various functionality like open, save, validate, and more"""
     def __init__(self, root, color_config):
         # Command frame for buttons (keeping buttons white)
         self.commands = tk.Frame(root, bg=color_config.primary_color)
@@ -23,6 +24,15 @@ class EditorTab:
 
         self.validate_button = tk.Button(self.commands, text="Convert Command", command=self.convert, bg=color_config.secondary_color, fg="black")
         self.validate_button.grid(column=3, row=0)
+        
+        self.cut_button = tk.Button(self.commands, text="Cut", command=self.cut, bg=color_config.secondary_color, fg="black")
+        self.cut_button.grid(column=4, row=0)
+
+        self.copy_button = tk.Button(self.commands, text="Copy", command=self.copy, bg=color_config.secondary_color, fg="black")
+        self.copy_button.grid(column=5, row=0)
+
+        self.paste_button = tk.Button(self.commands, text="Paste", command=self.paste, bg=color_config.secondary_color, fg="black")
+        self.paste_button.grid(column=6, row=0)
 
         self.commands.pack(anchor=tk.NW) # Packs command buttons at the top
 
@@ -38,6 +48,18 @@ class EditorTab:
         self.scroll_bar.config(command=self.text.yview)
         self.scroll_bar.pack(side=tk.RIGHT, fill=tk.Y)
         self.text.pack(fill="both", expand=True)  # Ensure text fills within border
+        
+    def cut(self) -> None:
+        """Cuts the selected text to the clipboard."""
+        self.text.event_generate("<<Cut>>")
+
+    def copy(self) -> None:
+        """Copies the selected text to the clipboard."""
+        self.text.event_generate("<<Copy>>")
+
+    def paste(self) -> None:
+        """Pastes the text from the clipboard into the editor."""
+        self.text.event_generate("<<Paste>>")
 
     def validate(self):
         """Validates the text in the editor making sure it is valid."""
@@ -121,12 +143,17 @@ class EditorTab:
         with open(path, "w") as file:
             file.write(self.text.get("1.0", tk.END))
     
-    #convert prototype. 
+     
     def convert(self) -> None: 
+        """"converts commands from 5 digits to 7."""
         text = self.text.get("1.0", tk.END)
-
         lines = text.splitlines()
-        firstLine = lines[0]
-        if len(firstLine) == 5: 
-            self.text.insert(1, "0")
-            self.text.insert(4, "0")
+        for line in range(len(lines)): 
+            if len(lines[line]) == 5: 
+                partOne = lines[line][1:3]
+                partTwo = lines[line][3::]
+                alteredCommand = f"{lines[line][0]}0{partOne}0{partTwo}"
+                lines[line] = alteredCommand
+        lines = "\n".join(lines)
+        self.text.replace("1.0", tk.END, lines)
+

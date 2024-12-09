@@ -9,6 +9,7 @@ if TYPE_CHECKING:
 
 
 class Instruction(ABC):
+    """Abstract base class for defining CPU instructions"""
 
     @property
     @abstractmethod

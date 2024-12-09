@@ -14,6 +14,7 @@ from src.instruction.event import InstructionEvent
 
 
 class ReadInstruction(Instruction):
+    """Handles user input to read a value and store it in memory"""
     instruction = 10
 
     def __init__(self):

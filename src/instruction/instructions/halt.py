@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     from src.tab.run import RunTab
 
 class HaltInstruction(Instruction):
+    """Halts the execution of the virtual machine"""
     instruction = 43
 
     def __init__(self):

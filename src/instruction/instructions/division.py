@@ -11,6 +11,7 @@ from src.instruction.event import InstructionEvent
 
 
 class DivisionInstruction(Instruction):
+    """Divides the accumulator by a memory value in an integer"""
     instruction = 32
 
     def __init__(self):

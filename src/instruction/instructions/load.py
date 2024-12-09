@@ -9,6 +9,7 @@ if TYPE_CHECKING:
 from src.instruction.event import InstructionEvent
 
 class LoadInstruction(Instruction):
+    """Loads a value from memory into the accumulator"""
     instruction = 20
 
     def __init__(self):

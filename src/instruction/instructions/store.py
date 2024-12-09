@@ -10,6 +10,7 @@ if TYPE_CHECKING:
 from src.instruction.event import InstructionEvent
 
 class StoreInstruction(Instruction):
+    """Stores the value from the accumulator into memory at the given address"""
     instruction = 21
 
     def __init__(self):

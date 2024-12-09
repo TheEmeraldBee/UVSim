@@ -10,6 +10,7 @@ if TYPE_CHECKING:
 from src.instruction.event import InstructionEvent
 
 class MultiplyInstruction(Instruction):
+    """Multiplies a memory value with the accumulator"""
     instruction = 33
 
     def __init__(self):

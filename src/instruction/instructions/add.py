@@ -11,6 +11,7 @@ from src.instruction.event import InstructionEvent
 
 
 class AddInstruction(Instruction):
+    """Represents an addition instruction for the virtual machine."""
     instruction = 30
 
     def __init__(self):
