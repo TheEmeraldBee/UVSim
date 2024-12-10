@@ -23,3 +23,32 @@
 8. User can divide memory at location to accumulator
 9. User can branch to specific memory location if accumulator is 0
 10. User can branch to specific memory location if accumulator is negative
+
+# Functional Requirements
+
+1. File Formats
+    - The app must support two file formats; one for 4-digit files, and one for 6-digit files.
+2. Dynamic Tabs
+    - Users can open multiple tabs in the same application instance.
+    - Each tab operates independently, allowing users to load, edit, and run separate files.
+3. GUI Customization
+    - Users can customize the primary and secondary colors of the GUI.
+    - Changes can take effect immediately or require a restart.
+4. Execution and Editing
+    - Users can load and execute programs through the `Running` tab.
+    - Users can edit programs in an `Editor` tab, with syntax validation before execution.
+5. Memory Handling
+    - The program must handle up to 250 lines of memeory and support 6-digit operations
+
+# Non-Functional Requirements
+
+1. Performance
+    - The app should execute programs with minimal lag, even when handling the maximum memory size.
+2. Usability
+    - The GUI must be intuitive, with clearly labeled buttons and accessible customizatino options.
+3. Persistence
+    - User settings (like colors) must persist between sessions through a configuration file.
+4. Cross-Platform
+    - The app must run on Windows, macOS, and Linux without additional dependencies beyond Python.
+5. Scalability
+    - The app must handle future expansions, such as support for larger files.
