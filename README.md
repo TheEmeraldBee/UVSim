@@ -40,8 +40,8 @@ You may now begin typing your desired instructions.
 
 # Screenshots
 
-- [Running Tab](RunningTab.png)
-- [Editor Tab](EditorTab.png)
+![Running Tab](RunningTab.png)
+![Editor Tab](EditorTab.png)
 
 
 # Links
